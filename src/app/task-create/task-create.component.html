@@ -1,0 +1,39 @@
+<div class="container custom-container">
+    <div class="col-md-12">
+      <h3 class="mb-3 text-center">Create Task</h3>
+  
+      <div class="form-group">
+          <label for="descriptionin">Description</label>
+        <input name="descriptionin" type="text" [(ngModel)]="taskDetails.Description" class="form-control" placeholder="Description">
+      </div>
+  
+      <div class="form-group">
+        <label for="Statesdp">State</label>
+        <select name="Statesdp" [(ngModel)]="State" required class="form-control" >
+            <option disabled [ngValue]="null">--Selected--</option>
+            <option *ngFor="let s of States" [ngValue]="s">
+                {{s.StateName}}
+            </option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="file">Choose File</label>
+        <div class="custom-file" id="customFile" lang="es">
+          <input type="file"
+                id="file"
+                (change)="handleFileInput($event.target.files)">
+        </div>
+      </div>
+
+      <!-- <div class="form-group">
+        <input type="text" [(ngModel)]="Task.DigitalInformation.FileName" class="form-control" placeholder="Name">
+      </div> -->
+  
+      <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" (click)="addTask()">Create Task</button>
+        <button class="btn btn-primary btn-lg btn-block" (click)="backClicked()">Volver</button>
+      </div>
+  
+    </div>
+  </div>

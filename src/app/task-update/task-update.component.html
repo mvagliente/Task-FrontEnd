@@ -1,0 +1,38 @@
+<div class="container custom-container">
+    <div class="col-md-12">
+      
+      <h3 class="mb-3 text-center">Update Task</h3>
+  
+      <div class="form-group">
+          <label for="descriptionin">Description</label>
+        <input name="descriptionin" type="text" [(ngModel)]="Task.Description" class="form-control" placeholder="Name">
+      </div>
+  
+      <div class="form-group">
+          <label for="Statesdp">State</label>
+        <select name="Statesdp" [(ngModel)]="Task.State.Id" required class="form-control" >
+            <option disabled [ngValue]="null">--Selected--</option>
+            <option *ngFor="let s of States" [ngValue]="s.Id">
+                {{s.StateName}}
+            </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label >File: </label>
+        <label>{{Task.digitalInfo.FileName}}</label>
+      </div>
+
+        <div class="form-group">
+        <label for="file">Choose File</label>
+        <input type="file"
+                id="file"
+                (change)="handleFileInput($event.target.files)">>>
+        </div>
+  
+      <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" (click)="updateTask()">Update Task</button>
+        <button class="btn btn-primary btn-lg btn-block" (click)="backClicked()">Volver</button>
+      </div>
+      
+    </div>
+  </div>

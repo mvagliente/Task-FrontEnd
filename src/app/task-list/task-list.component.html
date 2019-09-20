@@ -1,0 +1,46 @@
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-12">
+
+        <h4>Add Task</h4>
+        <hr />
+        <br>
+        <p>
+          <button class="btn btn-primary" routerLink="/create-task">Add</button>
+        </p>
+      
+        
+        <div>
+          <h3 class="mb-3 text-center">Task List</h3>
+      
+          <div class="col-md-12">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">State</th>
+                  <th scope="col">File</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let t of Tasks">
+                  <td>{{t.Id}}</td>
+                  <td>{{t.Description}}</td>
+                  <td>{{t.State.StateName}}</td>
+                  <td><a href="{{t.digitalInfo.FullPath}}" target="_blank" class="btn btn-secondary">Descargar {{t.digitalInfo.FileName}}</a></td>
+                  <td>
+                    <button class="btn btn-primary edit" routerLink="/update-task/{{t.Id}}">Edit</button>
+                    <button class="btn btn-danger delete" (click)="deleteTask(t.Id)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      
+        </div>
+  
+  </div>
+</div>
+</div>
